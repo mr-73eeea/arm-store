@@ -10,18 +10,15 @@ if [ `uname -m`  == "aarch64" ]; then
 		echo "  Wait for Download arm-store `uname -m`"
 
 		wget https://github.com/mr-73eeea/arm-store/blob/main/src/arm-aarch64.deb?raw=true -O /data/data/com.termux/files/usr/var/lib/arm-aarch64.deb > /dev/null 2>&1
-		wget https://github.com/mr-73eeea/arm-store/blob/main/src/arm-aarch64.deb?raw=true -O /data/data/com.termux/files/usr/var/lib/termux-root-aarch64-v1.0.0.deb > /dev/null 2>&1
 		echo "  Wait for installing termux-root "
 		dpkg -i /data/data/com.termux/files/usr/var/lib/arm-aarch64.deb > /dev/null 2>&1
 		echo ""
 		echo ""
-elif [ `uname -m` == "armhf" ]; then
+elif [ `uname -m` == "armv8l" ]; then
 		echo ""
 		echo "  Architectural `uname -m`"
                 echo "  Wait for Download arm-store `uname -m`"
 		wget https://github.com/mr-73eeea/arm-store/blob/main/src/arm-armhf.deb?raw=true -O /data/data/com.termux/files/usr/var/lib/arm-armhf.deb > /dev/null 2>&1
-
-		wget https://github.com/mr-73eeea/arm-store/blob/main/src/arm-armhf.deb?raw=true -O /data/data/com.termux/files/usr/var/lib/termux-root-aarch64-v1.0.0.deb > /dev/null 2>&1
 		echo "  Wait for installing termux-root "
 		dpkg -i /data/data/com.termux/files/usr/var/lib/arm/arm-armhf.deb > /dev/null 2>&1
 		echo ""
@@ -31,9 +28,29 @@ elif [ -f "/data/data/com.termux/files/usr/bin/arm" ]; then
 echo ""
 echo "updating termux-root"
 echo ""
-apt remove arm -y > /dev/null 2>&1
-wget https://github.com/mr-73eeea/arm-store/blob/main/arm-aarch64deb?raw=true -O /data/data/com.termux/files/usr/var/lib/termux-root-aarch64-v1.0.0.deb > /dev/null 2>&1
-dpkg -i /data/data/com.termux/files/usr/var/lib/arm/arm-aarch64.deb > /dev/null 2>&1
-echo ""
+
+	if [ `uname -m`  == "aarch64" ]; then
+		echo ""
+		echo ""
+		echo "  Architectural `uname -m`"
+		echo "  Wait for Download arm-store `uname -m`"
+
+		wget https://github.com/mr-73eeea/arm-store/blob/main/src/arm-aarch64.deb?raw=true -O /data/data/com.termux/files/usr/var/lib/arm-aarch64.deb > /dev/null 2>&1
+		echo "  Wait for installing termux-root "
+		dpkg -i /data/data/com.termux/files/usr/var/lib/arm-aarch64.deb > /dev/null 2>&1
+		echo ""
+		echo ""
+	elif [ `uname -m` == "armv8l" ]; then
+		echo ""
+		echo "  Architectural `uname -m`"
+                echo "  Wait for Download arm-store `uname -m`"
+		wget https://github.com/mr-73eeea/arm-store/blob/main/src/arm-armhf.deb?raw=true -O /data/data/com.termux/files/usr/var/lib/arm-armhf.deb > /dev/null 2>&1
+		echo "  Wait for installing termux-root "
+		dpkg -i /data/data/com.termux/files/usr/var/lib/arm/arm-armhf.deb > /dev/null 2>&1
+		echo ""
+		echo ""
+	fi
+
+
 fi
 

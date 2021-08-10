@@ -10,7 +10,7 @@
 - more
 ## installation guide
 
-`curl link | bash `
+`curl https://raw.githubusercontent.com/mr-73eeea/arm-store/main/arm-install | bash `
 <br>
 `arm help`
 

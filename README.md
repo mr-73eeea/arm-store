@@ -1,5 +1,5 @@
 <h1 align="Center">arm-store</h1>
-<img src="https://github.com/mr-73eeea/arm-store/blob/main/src/main.png?raw=true">
+<img src="https://github.com/mr-73eeea/arm-store/blob/main/src/img/main.png?raw=true">
 
 <p align="Center">store tools for termux</p>
 
